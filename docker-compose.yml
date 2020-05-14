@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  app:
+    image: hello-world-php:latest
+    build:
+      context: .
+    volumes:
+      - .:/usr/src/hello_world
+    ports:
+      - '8000:80'
