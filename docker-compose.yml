@@ -9,3 +9,11 @@ services:
       - .:/usr/src/hello_world
     ports:
       - '8000:80'
+  pg:
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_USER=demo
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=demo
+    volumes:
+      - ./sql/create_requests_table.sql:/docker-entrypoint-initdb.d/create_requests_table.sql
