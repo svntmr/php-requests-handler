@@ -1,4 +1,6 @@
-FROM php:7.4-fpm-alpine3.11
+FROM php:7.4.6-apache
+
+RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql pgsql && apt-get purge -y --auto-remove
 
 WORKDIR /usr/src/hello_world
 

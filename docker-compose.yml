@@ -5,6 +5,11 @@ services:
     image: hello-world-php:latest
     build:
       context: .
+    environment:
+      - POSTGRES_USER=demo
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=demo
+      - POSTGRES_HOST=pg
     volumes:
       - .:/usr/src/hello_world
     ports:
@@ -17,3 +22,11 @@ services:
       - POSTGRES_DB=demo
     volumes:
       - ./sql/create_requests_table.sql:/docker-entrypoint-initdb.d/create_requests_table.sql
+
+  client:
+    image: jfahrer/checker-u-dev-a3:latest
+    environment:
+      - POSTGRES_USER=demo
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=demo
+      - POSTGRES_HOST=pg
