@@ -50,7 +50,7 @@ $requests = $getRequests();
 <html lang="en">
     <head>
         <title>
-            Dockerized PHP Hello-World
+            Requests handler
         </title>
     </head>
     <body>
