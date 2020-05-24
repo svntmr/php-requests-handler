@@ -46,7 +46,13 @@ $getRequests = static function () use ($pgConnection) {
 $requests = $getRequests();
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>
+            Dockerized PHP Hello-World
+        </title>
+    </head>
     <body>
         <h1>Hello, World from Docker!</h1>
         <h2>The requests</h2>
