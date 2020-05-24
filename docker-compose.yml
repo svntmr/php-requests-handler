@@ -5,6 +5,9 @@ services:
     image: hello-world-php:latest
     build:
       context: .
+    depends_on:
+      - lb
+      - pg
     environment:
       - POSTGRES_USER=demo
       - POSTGRES_PASSWORD=secret
@@ -12,6 +15,13 @@ services:
       - POSTGRES_HOST=pg
     volumes:
       - .:/usr/src/hello_world
+
+  lb:
+    image: jfahrer/lb:latest
+    environment:
+      - PROXY_UPSTREAM=app:80
+    ports:
+      - 8000:80
 
   pg:
     image: postgres:12-alpine
@@ -29,10 +39,3 @@ services:
       - POSTGRES_PASSWORD=secret
       - POSTGRES_DB=demo
       - POSTGRES_HOST=pg
-
-  lb:
-    image: jfahrer/lb:latest
-    environment:
-      - PROXY_UPSTREAM=app:80
-    ports:
-      - 8000:80
