@@ -9,4 +9,4 @@ This docker-compose service can handle requests via PHP embedded web server with
 
 ### After this you can reach application on http://localhost:8000/
 
-#### This repository was build during study [at this course](https://learndocker.online/courses/3/overview/content "Writing Code")
+#### This repository was built during study [at this course](https://learndocker.online/courses/3/overview/content "Writing Code")
